@@ -8,7 +8,7 @@ A nice screen configuration with different color themes, a window panel and syst
 Installation:
 -------------
 1. Clone this repository
-    ```git clone https://github.com/meskarune/lumialda.git'''
+    ```git clone https://github.com/meskarune/lumialda.git```
 2. Move the "screen" folder to ~/
     ```mv screen/ ~/```
 3. Move a screen configuration to your home 
