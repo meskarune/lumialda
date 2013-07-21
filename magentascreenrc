@@ -1,0 +1,38 @@
+# Basic Screen Settings
+startup_message off
+autodetach on
+defscrollback 1000
+
+# Lock the screen session after 10 minutes
+idle 600 lockscreen
+
+# Configure UTF-8 and 256 colors
+defutf8 on
+term screen-256color
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
+
+# Allow terminal scrollbar to scroll screen window
+termcapinfo xterm* ti@:te@
+
+# Set your shell
+shell /bin/bash
+
+# Screen panel settings
+backtick 1 3600 3600  whoami
+backtick 2 60 60      $HOME/screen/uptime.sh
+backtick 3 3600 3600  $HOME/screen/totaldisk.sh
+backtick 4 3600 3600  $HOME/screen/homedisk.sh
+backtick 5 3600 3600  $HOME/screen/vardisk.sh
+backtick 6 3600 3600  $HOME/screen/webdisk.sh
+backtick 7 60 60      $HOME/screen/ram.sh
+
+caption always "%{-b mk}%-w%{+b km}%50>%n %t%{-b mk}%+w%<%{+b km}%{= km} %= %{w}%D %M %d %{w}%C:%s%a "
+hardstatus on
+hardstatus alwayslastline "%{M}%1`%{w}@%{Y}%H %= %{m}Up%{w}: %2` %{m}Disk%{w}: %3` %{m}Home%{w}: %4` %{m}/var%{w}: %5` %{m}/srv%{w}: %6` %{m}RAM%{w}: %7` %{m}Load%{w}: %l "
+
+# Automatically open the following screen windows, and run commands
+screen -t "start" echo welcome
+screen -t "bash"
